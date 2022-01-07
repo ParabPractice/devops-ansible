@@ -1,18 +1,15 @@
 provider "aws" {
-region = "us-east-2"
+  region     = "us-east-2"
+  access_key = "AKIAZ3S6MYW2XZY3B5UE"
+  secret_key = "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"
 }
-resource "aws_instance" "myawsserver" {
-  ami = "ami-077e31c4939f6a2f3"
-  instance_type = "t2.small"
-  key_name = "gds-import"
+
+
+resource "aws_instance" "DevOpsEc2" {
+  ami           = "ami-002068ed284fb165b"
+  instance_type = "t2.micro"
 
   tags = {
-    Name = "Gagan-devops-server-v2"
-    env = "production"
-    owner = "Vinay"
-  }
-  provisioner "local-exec" {
-    command = "echo The servers IP address is ${self.public_ip} && echo ${self.public_ip} > /root/inv"
+    Name = "ParabDevOps-Ec2"
   }
 }
-
