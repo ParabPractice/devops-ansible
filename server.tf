@@ -10,4 +10,7 @@ resource "aws_instance" "DevOpsEc2" {
   tags = {
     Name = "ParabDevOps-Ec2"
   }
+  provisioner "local-exec" {
+    command = "echo The servers IP address is ${self.public_ip} && echo ${self.public_ip} > /root/inv"
+  }
 }
